@@ -13,7 +13,7 @@ class postCrud_ctrl extends Controller
     public function index()
     {
         //
-        return "Liste des rticlesa";
+        return "Liste des articles";
     }
 
     /**
