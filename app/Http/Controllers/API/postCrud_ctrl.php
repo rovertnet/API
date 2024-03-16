@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\createPosts;
 use App\Models\postes;
 use Illuminate\Http\Request;
 
@@ -28,10 +29,14 @@ class postCrud_ctrl extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(createPosts $post)
     {
         //
         $post = new postes();
+        $post->title = "Informatique";
+        $post->content = "Je suis un article";
+        $post->image = "Je suis une image de cet article";
+        $post->save();
         
     }
 
