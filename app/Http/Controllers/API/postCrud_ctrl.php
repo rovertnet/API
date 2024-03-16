@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\postes;
 use Illuminate\Http\Request;
 
 class postCrud_ctrl extends Controller
@@ -30,6 +31,8 @@ class postCrud_ctrl extends Controller
     public function store(Request $request)
     {
         //
+        $post = new postes();
+        
     }
 
     /**
