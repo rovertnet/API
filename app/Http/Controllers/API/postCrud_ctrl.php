@@ -16,8 +16,17 @@ class postCrud_ctrl extends Controller
      */
     public function index()
     {
-        //
-        return "Liste des articles";
+        //L'affichage de tous les postes
+        try {
+            //code d'affichage
+            return response()->json([
+                'status' => 200,
+                'message' => 'Affichage de postes',
+                'data' => postes::all()
+            ]);
+        } catch (Exception $e) {
+            return response()->json($e);
+        }
     }
 
     // La creation d'un post
@@ -64,4 +73,24 @@ class postCrud_ctrl extends Controller
             return response()->json($e);
         }
     }
+    
+    //La suppression de post
+    public function delete(postes $post){
+        try {
+            
+            $post->delete();
+
+            return response()->json([
+                "status_code" => 200,
+                "status_message" => "La suppression a éte effectuée!",
+                "data" => $post
+            ]);
+            
+        } catch (Exception $e) {
+            
+            return response()->json($e);
+            
+        }
+    }
+
 }

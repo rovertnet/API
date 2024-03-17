@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/posts', [postCrud_ctrl::class, 'index']);
 Route::post('/posts/create', [postCrud_ctrl::class, 'store']);
 Route::put('/posts/edit/{post}', [postCrud_ctrl::class, 'edite']);
+Route::delete('/posts/{post}', [postCrud_ctrl::class, 'delete']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
