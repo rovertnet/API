@@ -14,8 +14,14 @@ class postCrud_ctrl extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        //La recherche des informations dans la BDD
+        $query = postes::query();
+        $nbrInfos = 1;
+        $nbrPages = $request->input("page", 1);
+        $search = $request-
+        
         //L'affichage de tous les postes
         try {
             //code d'affichage
