@@ -57,7 +57,7 @@ class postCrud_ctrl extends Controller
             return response()->json([
                 "status_code" => 200,
                 "status_message" => "La modification s'est bien effectuée!",
-                "status_code" => $post
+                "data" => $post
             ]);
             
         } catch (Exception $e) {
