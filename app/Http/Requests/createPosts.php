@@ -37,4 +37,11 @@ class createPosts extends FormRequest
             'errorList' => $validator->errors()
         ]));
     }
+
+    //Message de la condition posée
+    public function messages(){
+        return[
+          'title.required' => 'Le titre doit être fourni'  
+        ];
+    }
 }
