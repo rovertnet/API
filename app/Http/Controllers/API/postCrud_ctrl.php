@@ -46,7 +46,23 @@ class postCrud_ctrl extends Controller
     // la modification de données à la BDD
     public function edite(EditRequest $request, $id)
     {
-        //Le code de la modif
-        dd($id);
+        try {
+            
+            //Le code de la modif
+            $post = postes::find($id);
+            $post->title = $request->title;
+            $post->content = $request->content;
+            $post->image = $request->image;
+            $post->save();
+
+            return response()->json([
+                "status_code" => 200,
+                "status_message" => "La modification s'est bien effectuée!",
+                "status_code" => $post
+            ]);
+            
+        } catch (Exception $e) {
+            
+        }
     }
 }
