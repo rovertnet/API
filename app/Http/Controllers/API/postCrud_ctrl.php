@@ -16,19 +16,31 @@ class postCrud_ctrl extends Controller
      */
     public function index(Request $request)
     {
-        //La recherche des informations dans la BDD
-        $query = postes::query();
-        $nbrInfos = 1;
-        $nbrPages = $request->input("page", 1);
-        $search = $request-
         
         //L'affichage de tous les postes
         try {
+            
+            //La recherche des informations dans la BDD
+            $query = postes::query();
+            $nbrInfos = 1;
+            $nbrPages = $request->input("page", 1);
+            $search = $request->input("search");
+            
+            if ($search) {
+                $query->whereRaw("title LIKE '%".$search."%'");
+            }
+
+            $total = $query->count();
+
+            $result = $query->offset(($nbrPages -1) * $nbrInfos)->limit($nbrInfos)->$this->get();
+            
             //code d'affichage
             return response()->json([
                 'status' => 200,
                 'message' => 'Affichage de postes',
-                'data' => postes::all()
+                'current_page' => $nbrPages,
+                'last_page' => ceil($total / $nbrInfos),
+                'items' => $result
             ]);
         } catch (Exception $e) {
             return response()->json($e);
