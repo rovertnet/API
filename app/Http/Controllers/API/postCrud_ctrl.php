@@ -31,6 +31,7 @@ class postCrud_ctrl extends Controller
      */
     public function store(createPosts $request)
     {
+        add($request);
         //Code d'insertion des données..
         $post = new postes();
         $post->title = $request->title;
