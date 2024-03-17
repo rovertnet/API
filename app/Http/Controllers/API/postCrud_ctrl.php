@@ -19,10 +19,9 @@ class postCrud_ctrl extends Controller
         
         //L'affichage de tous les postes
         try {
-            
             //La recherche des informations dans la BDD
             $query = postes::query();
-            $nbrInfos = 1;
+            $nbrInfos = 2;
             $nbrPages = $request->input("page", 1);
             $search = $request->input("search");
             
@@ -32,7 +31,7 @@ class postCrud_ctrl extends Controller
 
             $total = $query->count();
 
-            $result = $query->offset(($nbrPages -1) * $nbrInfos)->limit($nbrInfos)->$this->get();
+            $result = $query->offset(($nbrPages -1) * $nbrInfos)->limit($nbrInfos)->get();
             
             //code d'affichage
             return response()->json([
