@@ -29,13 +29,13 @@ class postCrud_ctrl extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(createPosts $post)
+    public function store(createPosts $postRequest)
     {
-        //
+        //Code d'insertion des données..
         $post = new postes();
-        $post->title = "Informatique";
-        $post->content = "Je suis un article";
-        $post->image = "Je suis une image de cet article";
+        $post->title = $postRequest->title;
+        $post->content = $postRequest->content;
+        $post->image = $postRequest->image;
         $post->save();
         
     }
