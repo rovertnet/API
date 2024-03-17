@@ -44,7 +44,7 @@ class postCrud_ctrl extends Controller
     }
     
     // la modification de données à la BDD
-    public function update(EditRequest $request, $id)
+    public function edite(EditRequest $request, $id)
     {
         //Le code de la modif
         dd($id);
