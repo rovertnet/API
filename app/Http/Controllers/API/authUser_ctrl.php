@@ -48,7 +48,17 @@ class authUser_ctrl extends Controller
         //la logique 
         try {
             
+            if (auth()->attempt($request->only(['email', 'password']))) {
+                //Si les informations se correspondent à celles dans la BDD
+                
             
+            }else{
+                //Si les informations ne se correspondent pas 
+                return response()->json([
+                    "status_code" => 403,
+                    "status_message" => "Une erreur s'est produite lors de votre connextion"
+                ]);
+            }
             
         } catch (Exception $e) {
             

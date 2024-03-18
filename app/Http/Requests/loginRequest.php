@@ -45,7 +45,7 @@ class loginRequest extends FormRequest
         return[
           'email.required' => 'Email doit être fourni',
           'email.email' => 'Adresse Email non valide',
-          'email.exists' => 'Cette adresse Email n\'est pas',
+          'email.exists' => 'Cette adresse Email n\'existe pas',
           'password.required' => 'Le mot de passe doit être fourni'
         ];
     }
