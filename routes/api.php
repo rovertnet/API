@@ -14,7 +14,3 @@ Route::delete('/posts/{post}', [postCrud_ctrl::class, 'delete']);
 
 //Authentification User
 Route::post("/createUser", [authUser_ctrl::class, 'register']);
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
