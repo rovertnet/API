@@ -51,6 +51,15 @@ class authUser_ctrl extends Controller
             if (auth()->attempt($request->only(['email', 'password']))) {
                 //Si les informations se correspondent à celles dans la BDD
                 
+                $user = auth()->user();
+                $token = $user->createToken('LA_SECRETE_DE_API')->plainTextToken;
+                
+                return response()->json([
+                    "status_code" => 200,
+                    "status_message" => "Utilisateur connecté!",
+                    "user" => $user,
+                    "token" => $token
+                ]);
             
             }else{
                 //Si les informations ne se correspondent pas 
