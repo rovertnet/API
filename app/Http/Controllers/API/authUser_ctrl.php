@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\authUser;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class authUser_ctrl extends Controller
 {
@@ -14,12 +16,27 @@ class authUser_ctrl extends Controller
      */
     public function register(authUser $request)
     {
-        //Le code de la création de USER
+       try {
+        
+         //Le code de la création de USER
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password, [
+            'rounds' => 12
+        ]);
         $user->save();
+        
+        //Message de confirmation
+        return response()->json([
+                "status_code" => 200,
+                "status_message" => "Vous êtes bien enregistré!",
+                "data" => $user
+        ]);
+        
+       } catch (Exception $e) {
+         return response()->json($e);
+       }
     }
 
     /**
