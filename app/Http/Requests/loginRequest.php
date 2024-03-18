@@ -44,6 +44,8 @@ class loginRequest extends FormRequest
     public function messages(){
         return[
           'email.required' => 'Email doit être fourni',
+          'email.email' => 'Adresse Email non valide',
+          'email.exists' => 'Cette adresse Email n\'est pas',
           'password.required' => 'Le mot de passe doit être fourni'
         ];
     }
