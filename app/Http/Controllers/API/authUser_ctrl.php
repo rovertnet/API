@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 class authUser_ctrl extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * La création de l'utilisateur
      */
-    public function index()
+    public function register()
     {
-        //
+        //Le code de la création de USER
+        dd("ok");
     }
 
     /**
