@@ -40,11 +40,12 @@ class authUser_ctrl extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * La connexion de l'utilisateur
      */
-    public function create()
+    public function login()
     {
-        //
+        //la logique 
+        
     }
 
     /**
