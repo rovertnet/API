@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\authUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class authUser_ctrl extends Controller
@@ -10,10 +12,14 @@ class authUser_ctrl extends Controller
     /**
      * La création de l'utilisateur
      */
-    public function register()
+    public function register(authUser $request)
     {
         //Le code de la création de USER
-        dd("ok");
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
     }
 
     /**
