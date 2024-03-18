@@ -51,7 +51,7 @@ class authUser_ctrl extends Controller
             
         } catch (Exception $e) {
             
-            
+            return response()->json($e);
             
         }
     }
