@@ -45,7 +45,15 @@ class authUser_ctrl extends Controller
     public function login()
     {
         //la logique 
-        
+        try {
+            
+            
+            
+        } catch (Exception $e) {
+            
+            
+            
+        }
     }
 
     /**
