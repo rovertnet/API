@@ -55,6 +55,7 @@ class postCrud_ctrl extends Controller
             $post->title = $request->title;
             $post->content = $request->content;
             $post->image = $request->image;
+            $post->user_id = auth()->user()->id;
             $post->save();
             
             //la reponse à la requette
