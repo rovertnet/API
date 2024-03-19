@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/posts', [postCrud_ctrl::class, 'index']);
 
 
-Route::delete('/posts/{post}', [postCrud_ctrl::class, 'delete']);
+
 
 //Authentification User
 Route::post("/createUser", [authUser_ctrl::class, 'register']);
@@ -24,6 +24,9 @@ Route::middleware('auth:sanctum')->group(function (){
   
   //La modification du post
   Route::put('/posts/edit/{post}', [postCrud_ctrl::class, 'edite']);
+
+  //La suppression d'un post
+  Route::delete('/posts/{post}', [postCrud_ctrl::class, 'delete']);
   
   //Retourner Utilisateur connecté
   Route::get('/user', function (Request $request) {

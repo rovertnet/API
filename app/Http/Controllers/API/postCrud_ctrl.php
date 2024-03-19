@@ -106,9 +106,16 @@ class postCrud_ctrl extends Controller
     //La suppression de post
     public function delete(postes $post){
         try {
+            //La vérification de l'auteur de post
+            if ($post->user_id === auth()->user()->id) {
+                $post->delete();
+            }else{
+                return response()->json([
+                    "status_code" => 422,
+                    "status_message" => "Vous n'êtes pas l'auteur de ce post!"
+                ]);
+            }
             
-            $post->delete();
-
             return response()->json([
                 "status_code" => 200,
                 "status_message" => "La suppression a éte effectuée!",
