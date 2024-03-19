@@ -18,6 +18,7 @@ Route::post("/loginUser", [authUser_ctrl::class, 'login']);
 
 //La route la plus sécurisée
 Route::middleware('auth:sanctum')->group(function (){
+  
   //Création d'un post
   Route::post('/posts/create', [postCrud_ctrl::class, 'store']);
   

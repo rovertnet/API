@@ -74,19 +74,18 @@ class postCrud_ctrl extends Controller
     public function edite(EditRequest $request, postes $post)
     {
         try {
-            
             //Le code de la modif
             $post->title = $request->title;
             $post->content = $request->content;
             $post->image = $request->image;
             
-            if ($post->user_id = auth()->user()->id) {
+            if ($post->user_id === auth()->user()->id) {
                 $post->save();
             }else{
                 return response()->json([
-                "status_code" => 422,
-                "status_message" => "Vous n'êtes pas l'auteur de ce post!"
-            ]);
+                    "status_code" => 422,
+                    "status_message" => "Vous n'êtes pas l'auteur de ce post!"
+                ]);
             }
 
             return response()->json([
