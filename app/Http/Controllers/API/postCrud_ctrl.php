@@ -50,6 +50,10 @@ class postCrud_ctrl extends Controller
     public function store(createPosts $request)
     {
         try {
+            
+            // Télécharger et stocker l'image
+            $path = $request->file('image')->store('images');
+            
             //Code d'insertion des données..
             $post = new postes();
             $post->title = $request->title;
