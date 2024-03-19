@@ -58,7 +58,7 @@ class postCrud_ctrl extends Controller
             $post = new postes();
             $post->title = $request->title;
             $post->content = $request->content;
-            $post->image = $request->image;
+            $post->image = $path;
             $post->user_id = auth()->user()->id;
             $post->save();
             
