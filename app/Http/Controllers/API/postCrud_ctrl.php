@@ -88,7 +88,7 @@ class postCrud_ctrl extends Controller
             }else{
                 return response()->json([
                     "status_code" => 422,
-                    "status_message" => "Vous n'êtes pas l'auteur de ce post!"
+                    "status_message" => "Vous n'êtes pas l'auteur de ce post, vous ne pouvez le modifier!"
                 ]);
             }
 
