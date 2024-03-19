@@ -24,8 +24,8 @@ class createPosts extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'title' => 'required'
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
     
@@ -42,8 +42,8 @@ class createPosts extends FormRequest
     //Message de la condition posée
     public function messages(){
         return[
-          'title.required' => 'Le titre doit être fourni',  
-          'image.required' => 'L\'image doit être fournie'  
+          'title.required' => 'Le titre doit être fourni'  
+          //'image.required' => 'L\'image doit être fournie'  
         ];
     }
 }

@@ -52,13 +52,13 @@ class postCrud_ctrl extends Controller
         try {
             
             // Télécharger et stocker l'image
-            $path = $request->file('image')->store('images');
+            //$path = $request->file('image')->store('images');
             
             //Code d'insertion des données..
             $post = new postes();
             $post->title = $request->title;
             $post->content = $request->content;
-            $post->image = $path;
+            $post->image = $request->image;
             $post->user_id = auth()->user()->id;
             $post->save();
             
