@@ -24,7 +24,8 @@ class createPosts extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required'
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
     
