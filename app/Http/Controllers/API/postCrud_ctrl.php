@@ -79,7 +79,15 @@ class postCrud_ctrl extends Controller
             $post->title = $request->title;
             $post->content = $request->content;
             $post->image = $request->image;
-            $post->save();
+            
+            if ($post->user_id = auth()->user()->id) {
+                $post->save();
+            }else{
+                return response()->json([
+                "status_code" => 422,
+                "status_message" => "Vous n'êtes pas l'auteur de ce post!"
+            ]);
+            }
 
             return response()->json([
                 "status_code" => 200,

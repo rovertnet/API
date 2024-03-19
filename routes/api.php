@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 //Routes de CRUD Post
 Route::get('/posts', [postCrud_ctrl::class, 'index']);
 
-Route::put('/posts/edit/{post}', [postCrud_ctrl::class, 'edite']);
+
 Route::delete('/posts/{post}', [postCrud_ctrl::class, 'delete']);
 
 //Authentification User
@@ -20,6 +20,9 @@ Route::post("/loginUser", [authUser_ctrl::class, 'login']);
 Route::middleware('auth:sanctum')->group(function (){
   //Création d'un post
   Route::post('/posts/create', [postCrud_ctrl::class, 'store']);
+  
+  //La modification du post
+  Route::put('/posts/edit/{post}', [postCrud_ctrl::class, 'edite']);
   
   //Retourner Utilisateur connecté
   Route::get('/user', function (Request $request) {
