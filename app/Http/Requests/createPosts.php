@@ -42,7 +42,8 @@ class createPosts extends FormRequest
     //Message de la condition posée
     public function messages(){
         return[
-          'title.required' => 'Le titre doit être fourni'  
+          'title.required' => 'Le titre doit être fourni',  
+          'image.required' => 'L\'image doit être fournie'  
         ];
     }
 }
